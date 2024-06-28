@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34916.146
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MasterWeb.Api", "MasterWebApi\MasterWeb.Api.csproj", "{E4DDB8B9-87B9-4472-9265-CAC338B41F20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasterWeb.Domain", "MasterWeb.Domain\MasterWeb.Domain.csproj", "{E223D9F0-5D0E-4FE6-91E7-EB9EF96CFDF3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E4DDB8B9-87B9-4472-9265-CAC338B41F20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4DDB8B9-87B9-4472-9265-CAC338B41F20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4DDB8B9-87B9-4472-9265-CAC338B41F20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4DDB8B9-87B9-4472-9265-CAC338B41F20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E223D9F0-5D0E-4FE6-91E7-EB9EF96CFDF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E223D9F0-5D0E-4FE6-91E7-EB9EF96CFDF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E223D9F0-5D0E-4FE6-91E7-EB9EF96CFDF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E223D9F0-5D0E-4FE6-91E7-EB9EF96CFDF3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {94DD7B5B-F1DD-445B-99AA-FC8A7249EAEA}
+	EndGlobalSection
+EndGlobal

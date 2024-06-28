@@ -1,0 +1,6 @@
+@MasterWebApi_HostAddress = http://localhost:5139
+
+GET {{MasterWebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
