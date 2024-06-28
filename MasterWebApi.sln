@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MasterWeb.Api", "MasterWebA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasterWeb.Domain", "MasterWeb.Domain\MasterWeb.Domain.csproj", "{E223D9F0-5D0E-4FE6-91E7-EB9EF96CFDF3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasterWeb.Persistence", "MasterWeb.Persistence\MasterWeb.Persistence.csproj", "{FD6C72E8-714A-4DC6-8926-45300F2FA79D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{E223D9F0-5D0E-4FE6-91E7-EB9EF96CFDF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E223D9F0-5D0E-4FE6-91E7-EB9EF96CFDF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E223D9F0-5D0E-4FE6-91E7-EB9EF96CFDF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD6C72E8-714A-4DC6-8926-45300F2FA79D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD6C72E8-714A-4DC6-8926-45300F2FA79D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD6C72E8-714A-4DC6-8926-45300F2FA79D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD6C72E8-714A-4DC6-8926-45300F2FA79D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
