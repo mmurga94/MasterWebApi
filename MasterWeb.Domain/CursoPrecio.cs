@@ -1,9 +1,10 @@
 ﻿namespace MasterWeb.Domain
 {
-    public class Photo: BaseEntity
+    public class CursoPrecio
     {
-        public string? Url { get; set; }
         public Guid? CursoId { get; set; }
         public Curso? Curso { get; set; }
+        public Guid? PrecioId { get; set; }
+        public Precio? Precio { get; set; }
     }
 }
