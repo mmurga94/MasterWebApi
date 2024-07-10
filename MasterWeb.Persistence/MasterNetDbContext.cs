@@ -37,6 +37,58 @@ namespace MasterWeb.Persistence
                         .Property(b => b.Nombre)
                         .HasColumnType("VARCHAR")
                         .HasMaxLength(250);
+
+            modelBuilder.Entity<Curso>()
+                        .HasMany(c => c.Photos)
+                        .WithOne(p => p.Curso)
+                        .HasForeignKey(p => p.CursoId)
+                        .IsRequired()
+                        .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Curso>()
+                        .HasMany(c => c.Calificaciones)
+                        .WithOne(c => c.Curso)
+                        .HasForeignKey(c => c.CursoId)
+                        .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Curso>()
+                        .HasMany(c => c.Precios)
+                        .WithMany(p => p.Cursos)
+                        .UsingEntity<CursoPrecio>(
+                            j => j
+                                  .HasOne(cp => cp.Precio)
+                                  .WithMany(p => p.CursoPrecios)
+                                  .HasForeignKey(cp => cp.PrecioId),
+                            j => j
+                                  .HasOne(cp => cp.Curso)
+                                  .WithMany(c => c.CursoPrecios)
+                                  .HasForeignKey(cp => cp.CursoId),
+                            j =>
+                            {
+                                j.HasKey(t => new { t.PrecioId, t.CursoId });
+                            }
+
+                        );
+
+            modelBuilder.Entity<Curso>()
+                        .HasMany(c => c.Instructores)
+                        .WithMany(i => i.Cursos)
+                        .UsingEntity<CursoInstructor>(
+                            j => j
+                                  .HasOne(ci => ci.Instructor)
+                                  .WithMany(i => i.CursosInstructors)
+                                  .HasForeignKey(ci => ci.InstructorId),
+                            j => j
+                                  .HasOne(ci => ci.Curso)
+                                  .WithMany(c => c.CursoInstructors)
+                                  .HasForeignKey(ci => ci.CursoId),
+                            j =>
+                            {
+                                j.HasKey(t => new { t.InstructorId, t.CursoId });
+                            }
+                        );
         }
+
+
     }
 }
