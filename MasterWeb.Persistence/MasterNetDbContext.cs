@@ -1,10 +1,15 @@
-﻿using MasterWeb.Domain;
+﻿using Bogus;
+using MasterWeb.Domain;
 using Microsoft.EntityFrameworkCore;
 
 namespace MasterWeb.Persistence
 {
     public class MasterNetDbContext : DbContext
     {
+        public DbSet<Curso> Cursos { get; set; }
+        public DbSet<Instructor> Instructores { get; set; }
+        public DbSet<Precio> Precios { get; set; }
+        public DbSet<Calificacion> Calificaciones { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder
@@ -87,8 +92,47 @@ namespace MasterWeb.Persistence
                                 j.HasKey(t => new { t.InstructorId, t.CursoId });
                             }
                         );
+
+            modelBuilder.Entity<Curso>().HasData(DataMaster().Item1);
+            modelBuilder.Entity<Precio>().HasData(DataMaster().Item2);
+            modelBuilder.Entity<Instructor>().HasData(DataMaster().Item3);
         }
 
+        public Tuple<Curso[], Precio[], Instructor[]> DataMaster()
+        {
+            List<Curso> cursos = new List<Curso>();
+            Faker faker = new Faker();
 
+            for (int i = 0; i < 10; i++)
+            {
+                Curso curso = new Curso()
+                {
+                    Id = Guid.NewGuid(),
+                    Descripcion = faker.Commerce.ProductDescription(),
+                    Titulo = faker.Commerce.ProductName(),
+                    FechaDePublicacion = DateTime.UtcNow
+                };
+                cursos.Add(curso);
+            }
+
+            Precio precio = new Precio()
+            {
+                Id = Guid.NewGuid(),
+                PrecioActual = 10.0m,
+                PrecioPromocion = 8.0m,
+                Nombre = "Precio Regular"
+            };
+            List<Precio> precios = new List<Precio>() { precio };
+
+            Faker<Instructor> fakerInstructor = new Faker<Instructor>()
+                .RuleFor(i => i.Id, _ => Guid.NewGuid())
+                .RuleFor(i => i.Nombres, f => f.Name.FirstName())
+                .RuleFor(i => i.Apellidos, f => f.Name.LastName())
+                .RuleFor(i => i.Grado, f => f.Name.JobTitle());
+
+            List<Instructor> instructores = fakerInstructor.Generate(10);
+
+            return Tuple.Create(cursos.ToArray(), precios.ToArray(), instructores.ToArray());
+        }
     }
 }
